@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+*{
+box-sizing: border-box;
+}
+
+ul{
+color:black;
+font-family: Newtimesroman;
+margin:0;
+padding:0;
+}
+
+ul li{
+cursor: pointer;
+position:relative;
+width:100%;
+margin-top:25px;
+text-decoration:none;
+padding:15px;
+top: 20px;
+}
+
+ul li:nth-child(even){
+   background-color:grey;          
+}
+ul li:nth-child(odd) {
+  background-color: rgba(245, 39, 80, 0.8);
+}
+
+ul li:hover{
+ background-color:rgba(38, 243, 194, 0.8);
+ }
+ 
+.heading{
+ text-align:center;
+ background-color: rgba(245, 42, 21, 0.8);
+ padding: 10px 15px;
+ margin-bottom: 50px;
+ font-size:30px;
+ color: white;
+ }
+
+ input{
+ width:85%;
+ padding: 14px 18px;
+ margin-bottom:5px;
+ font-size:16px;
+ border-radius: 5px;
+ }
+ 
+.myStyle{
+ text-decoration-line:line-through;
+ background-image:url("https://www.pngmart.com/files/22/Check-Mark-Tick-PNG-Transparent-Picture.png");
+ background-size:25px 25px;
+ background-repeat:no-repeat;
+ z-index:1;
+ }
+ 
+ .Addbutton {
+  padding: 14px 18px;
+  width:15%;
+  margin-top:2px;
+  background: #aebcfe;
+  color: white;
+  float: right;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+ .Addbutton:hover{
+ background-color:rgba(91, 10, 222, 0.8);
+ }
+</style>
+</head> 
+<body>
+<div id="Mydiv" class="heading">
+<h1 class=heading>My To Do List</h1>
+<input type="text" name="myInput" placeholder="Tasks to do..." id="inputid" >
+  <span onclick="newElement()" class="Addbutton" value=" " id="Addbutton">Add</span>
+</div>
+ <div onclick=""></button>
+<div id="kritika">
+<div id="divid">
+</div>
+</div>
+<!--<button onclick="myFunction()">lets see</button>
+<p id= "myId"> hello </p>-->
+
+</body>
+<script>
+
+const list=[];
+let Llen= list.length;
+let text = "<ul>";
+for(let i=0;i<Llen;i++){
+text+= "<li>"+list[i]+"</li>";
+}
+text+="</ul>";
+document.getElementById("divid").innerHTML=text;
+
+function newElement(){
+//onclick  event.value 
+var x = document.getElementById("inputid").value;
+
+//arr.push 
+list.push(x);
+let Llen= list.length;
+let text = "<ul>";
+for(let i=0;i<Llen;i++){
+text+= "<li onclick='completed(this)'>"+list[i]+  "<span onclick='deleteLi(this)' style='float:right; width:15px 20px;'>❌</span></li>";
+document.getElementById("inputid").value= "";
+}
+text+="</ul>";
+
+document.getElementById("divid").innerHTML=text;
+}
+/*clicked to choose 
+function myFunction(){
+var element= document.getElementById("myDiv");
+element.classList.toggle("myStyle");
+}
+*/
+function createLi(e){
+var element=document.getElementById("kritika");
+e.classList.toggle("myStyle");
+}
+//function for delete list
+
+	function deleteLi(e){
+     e.parentElement.remove();
+	}
+    
+    function completed (kriti){
+    	 kriti.classList.toggle("myStyle");
+	}
+    
+    
+    
+    
+    
+    //✓//
+</script>
+
+</html>
